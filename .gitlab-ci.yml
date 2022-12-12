@@ -33,7 +33,7 @@ sonarqube-check:
 
   script:
     - echo 'Start create sln'
-    - Unity.exe -batchmode -projectPath . -quit -logFile slnLog.txt
+    - Unity.exe -batchmode -projectPath . -executeMethod UnityEditor.SyncVS.SyncSolution -quit -logFile slnLog.txt
     - Wait-Process -Name Unity
     - echo 'Create sln done'
     - $FOLDER_NAME = Split-Path -Path (Get-Location) -Leaf
