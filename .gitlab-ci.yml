@@ -1,0 +1,78 @@
+stages:
+  - sonar
+  - build
+  - deploy
+
+sonarqube-check:
+  stage: sonar
+  tags:
+    - window
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar" # Defines the location of the analysis task cache
+    GIT_DEPTH: "0" # Tells git to fetch all the branches of the project, required by the analysis task
+    PROJECT_KEY: hao.tu_hologram_ditichcodohue_AYUFcEoNHjP8xtvVzv-M #Analyze"TestUnityCi"
+
+  cache:
+    paths:
+      - Library
+  before_script:
+    - |
+      if (!(Test-Path -Path 'Library')) {
+        echo 'Start create Library'
+        Unity.exe -quit -nographics -batchmode -projectPath . -executeMethod UnityEditor.SyncVS.SyncSolution -logFile libraryLog.txt
+        Wait-Process -Name Unity
+        echo 'Done create Library '
+      }else{
+        echo 'Library exist'
+      }
+
+    # - Unity.exe -projectPath . -logFile libraryLog.txt -quit
+    # - Wait-Process -Name Unity
+    # - Unity.exe -projectPath . -quit
+    # - Wait-Process -Name Unity
+
+  script:
+    - echo 'Start create sln'
+    - Unity.exe -batchmode -projectPath . -quit -logFile slnLog.txt
+    - Wait-Process -Name Unity
+    - echo 'Create sln done'
+    - $FOLDER_NAME = Split-Path -Path (Get-Location) -Leaf
+    - $SLN_NAME = $FOLDER_NAME + ".sln"
+    - echo $SLN_NAME
+    - SonarScanner.MSBuild.exe begin /k:"$PROJECT_KEY" /d:sonar.inclusions="Assets/Scripts/**" /d:sonar.host.url="$SONAR_HOST_URL" /d:sonar.login="$SONAR_TOKEN" /d:sonar.log.level="Info"
+    - MsBuild.exe /t:Rebuild $SLN_NAME
+    - SonarScanner.MSBuild.exe end /d:sonar.login="$SONAR_TOKEN"
+  allow_failure: false
+
+  # only:
+  #   - master # or the name of your main branch
+  #    docker:19.03.13-dind
+
+build:
+  stage: build
+  only:
+    - main # or the name of your main branch
+  tags:
+    - window
+  variables:
+    BUILD_TARGET: StandaloneWindows64
+    BUILD_NAME: TestUnityCI
+    BUILD_PATH: "${CI_PROJECT_DIR}/Builds/$BUILD_TARGET/"
+    VERSION_NUMBER_VAR: $CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID-$CI_JOB_ID
+    VERSION_BUILD_VAR: $CI_PIPELINE_IID
+    UNITY_DIR: $CI_PROJECT_DIR
+  before_script:
+    - echo "Check build Folder"
+    - |
+      If(!(test-path -PathType container $BUILD_PATH))
+      {
+      New-Item -ItemType Directory -Path $BUILD_PATH
+      }
+  script:
+    - echo "Buil started"
+    - Unity.exe -quit -nographics -batchmode -projectPath . -executeMethod BuildCommand.PerformBuild -logFile log.txt -buildTarget $BUILD_TARGET -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH
+    - Wait-Process -Name Unity
+    - echo "Build finished"
+  artifacts:
+    paths:
+      - $UNITY_DIR/Builds/
