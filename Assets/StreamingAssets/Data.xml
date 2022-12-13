@@ -2,28 +2,28 @@
 <XMLLanguageData>
 	<languageDatas>
 		<LanguageData>
-			<key>AnRong</key>
+			<key>BtnPlay</key>
 			<datas>
 				<Data>
-					<langCode>VN</langCode>
+					<langCode>vi</langCode>
 					<content>content tieng viet</content>
 				</Data>
 				<Data>
-					<langCode>EN</langCode>
-					<content>content tieng viet</content>
+					<langCode>en</langCode>
+					<content>this is english content</content>
 				</Data>
 			</datas>
 		</LanguageData>
 		<LanguageData>
-			<key>TranhHamNghi</key>
+			<key>BtnGameOver</key>
 			<datas>
 				<Data>
-					<langCode>VN</langCode>
+					<langCode>vi</langCode>
 					<content>content tieng viet</content>
 				</Data>
 				<Data>
-					<langCode>EN</langCode>
-					<content>content tieng viet</content>
+					<langCode>en</langCode>
+					<content>this is english content</content>
 				</Data>
 			</datas>
 		</LanguageData>
