@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLanguageData>
+	<languageDatas>
+		<LanguageData>
+			<key>AnRong</key>
+			<datas>
+				<Data>
+					<langCode>VN</langCode>
+					<content>content tieng viet</content>
+				</Data>
+				<Data>
+					<langCode>EN</langCode>
+					<content>content tieng viet</content>
+				</Data>
+			</datas>
+		</LanguageData>
+		<LanguageData>
+			<key>TranhHamNghi</key>
+			<datas>
+				<Data>
+					<langCode>VN</langCode>
+					<content>content tieng viet</content>
+				</Data>
+				<Data>
+					<langCode>EN</langCode>
+					<content>content tieng viet</content>
+				</Data>
+			</datas>
+		</LanguageData>
+	</languageDatas>
+</XMLLanguageData>
