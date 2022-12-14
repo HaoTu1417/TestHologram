@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
@@ -26,35 +26,61 @@ public class AudioController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        PlayAudioByIndex();
+        
     }
-
-    public void PlayAudioByIndex(int index)
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayAudioOneShotByName(AudioList.Dragon);
+        }
+    }
+    public void PlayAudioByIndex(int index) //Phát audio bằng Index
     {
         //TODO: validate index
-        if(index > audios.Length || index < 0)
+        if(index >= audios.Length || index < 0)
         {
             return;
         }
         PlayAudio(audios[index].audioClip);
     }
 
-    public void PlayAudioByAudioName(AudioList audioName)
+    public void PlayAudioByAudioName(AudioList audioName) //Phát Audio bằng tên
     {
         foreach (var audio in audios)
         {
             if (audio.audioName == audioName)
             {
                 PlayAudio(audio.audioClip);
+                return;
             }
         }
+        Debug.Log("Not Found!!!" + audioName);
+    }
+
+    public void PlayAudioOneShotByName(AudioList audioName) //Phát OneShot Audio bằng Tên
+    {
+        foreach (var audio in audios)
+        {
+            if(audio.audioName == audioName) 
+            {
+                PlayAudioOneShot(audio.audioClip);
+                return;
+            }
+        }
+        Debug.Log("Not Found!!!" + audioName);
     }
 
 
-    private void PlayAudio(AudioClip audioclip)
+    private void PlayAudio(AudioClip audioclip) //Phát Audio
     {
         audioSource.clip = audioclip;
         audioSource.Play();
         audioSource.loop = true;
+    }
+
+    private void PlayAudioOneShot(AudioClip audioOneShot) //Phát OneShot Audio
+    {
+        audioSource.PlayOneShot(audioOneShot, 0.75f);
     }
 }
