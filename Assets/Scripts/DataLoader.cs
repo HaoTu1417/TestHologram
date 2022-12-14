@@ -70,13 +70,13 @@ namespace DiTichCoDoHue
     {
         public string langCode
         {
-            get { return langCode; }
-            set { langCode = value; }
+            get;
+            set;
         }
         public string content
         {
-            get { return content; }
-            set { content = value; }
+            get;
+            set;
         }
     }
 
@@ -85,13 +85,13 @@ namespace DiTichCoDoHue
     {
         public string key
         {
-            get { return key; }
-            set { key = value; }
+            get;
+            set;
         }
         public List<Data> datas
         {
-            get { return datas; }
-            set { datas = value; }
+            get;
+            set;
         }
     }
 
@@ -100,8 +100,8 @@ namespace DiTichCoDoHue
     {
         public List<LanguageData> languageDatas
         {
-            get { return languageDatas; }
-            set { languageDatas = value; }
+            get;
+            set;
         }
     }
 }
