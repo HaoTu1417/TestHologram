@@ -5,82 +5,83 @@ using Alta.Plugin;
 using System.IO;
 using System;
 
-public class DataLoader : MonoBehaviour
+namespace DiTichCoDoHue
 {
-
-    public static DataLoader Instance { private set; get; }
-
-
-    public XMLLanguageData XmlLanguageData { private set; get; }
-    private string filePath;
-
-    private void Awake()
+    public class DataLoader : MonoBehaviour
     {
-        Instance = this;
-        filePath = Path.Combine(Application.streamingAssetsPath, "Data.xml");
-        ReadXML();
-    }
 
-    private void ReadXML()
-    {
-        if (File.Exists(filePath))
+        public static DataLoader Instance { private set; get; }
+
+
+        public XmlLanguageData XmlLanguageData { private set; get; }
+        private string filePath;
+
+        private void Awake()
         {
-            XmlLanguageData = XmlExtention.Read<XMLLanguageData>(filePath);
+            Instance = this;
+            filePath = Path.Combine(Application.streamingAssetsPath, "Data.xml");
+            ReadXML();
         }
-        else
-        {
-            XmlLanguageData = new XMLLanguageData() { };
-            WriteToXML();
-        }
-    }
 
-    private void WriteToXML()
-    {
-        XmlExtention.Write(XmlLanguageData, filePath);
-    }
-
-    public List<Data> GetData(string key)
-    {
-        foreach(LanguageData data in XmlLanguageData.languageDatas)
+        private void ReadXML()
         {
-            if(data.key == key)
+            if (File.Exists(filePath))
             {
-                return data.datas;
+                XmlLanguageData = XmlExtention.Read<XmlLanguageData>(filePath);
+            }
+            else
+            {
+                XmlLanguageData = new XmlLanguageData() { };
+                WriteToXML();
             }
         }
-        return new List<Data> { };
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        for (int i = 0; i < GetData("AnRong").Count; i++)
+        private void WriteToXML()
         {
-            Debug.Log(GetData("AnRong")[i].langCode);
-            Debug.Log(GetData("AnRong")[i].content);
+            XmlExtention.Write(XmlLanguageData, filePath);
         }
-        
+
+        public List<Data> GetData(string key)
+        {
+            foreach (LanguageData data in XmlLanguageData.languageDatas)
+            {
+                if (data.key == key)
+                {
+                    return data.datas;
+                }
+            }
+            return new List<Data> { };
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            for (int i = 0; i < GetData("AnRong").Count; i++)
+            {
+                Debug.Log(GetData("AnRong")[i].langCode);
+                Debug.Log(GetData("AnRong")[i].content);
+            }
+
+        }
+
+
+        //TODO: lấy data theo key và load data từ XML lên
     }
-
-
-    //TODO: lấy data theo key và load data từ XML lên
-}
-[System.Serializable]
-public class Data
-{
-    public string langCode;
-    public string content;
-}
-[System.Serializable]
-public class LanguageData
-{
-    public string key;
-    public List<Data> datas;
-}
-[System.Serializable]
-public class XMLLanguageData
-{
-    public List<LanguageData> languageDatas;
-
-
+    [System.Serializable]
+    public class Data
+    {
+        public string langCode;
+        public string content;
+    }
+    [System.Serializable]
+    public class LanguageData
+    {
+        public string key;
+        public List<Data> datas;
+    }
+    [System.Serializable]
+    public class XmlLanguageData
+    {
+        public List<LanguageData> languageDatas;
+    }
 }

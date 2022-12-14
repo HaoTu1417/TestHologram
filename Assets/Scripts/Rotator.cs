@@ -2,42 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotator : MonoBehaviour
+namespace DiTichCoDoHue
 {
-    [SerializeField] float rotationSpeed = 50f;
-    bool dragging = false;
-    Rigidbody rb;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Rotator : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody>();
-    }
+        [SerializeField] float rotationSpeed = 50f;
+        bool dragging = false;
+        Rigidbody rb;
 
-    private void OnMouseDrag()
-    {
-        dragging = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonUp(0))
+        // Start is called before the first frame update
+        void Start()
         {
-            dragging = false;
+            rb = GetComponent<Rigidbody>();
         }
-    }
 
-    private void FixedUpdate()
-    {
-        if (dragging)
+        private void OnMouseDrag()
         {
-            float x = Input.GetAxis("Mouse X") * rotationSpeed * Time.fixedDeltaTime;
-            float y = Input.GetAxis("Mouse Y") * rotationSpeed * Time.fixedDeltaTime;
+            dragging = true;
+        }
 
-            rb.AddTorque(Vector3.down * x);
-            rb.AddTorque(Vector3.right * y);
+        // Update is called once per frame
+        void Update()
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                dragging = false;
+            }
+        }
 
+        private void FixedUpdate()
+        {
+            if (dragging)
+            {
+                float x = Input.GetAxis("Mouse X") * rotationSpeed * Time.fixedDeltaTime;
+                float y = Input.GetAxis("Mouse Y") * rotationSpeed * Time.fixedDeltaTime;
+
+                rb.AddTorque(Vector3.down * x);
+                rb.AddTorque(Vector3.right * y);
+
+            }
         }
     }
 }
