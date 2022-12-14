@@ -63,25 +63,45 @@ namespace DiTichCoDoHue
             }
 
         }
-
-
-        //TODO: lấy data theo key và load data từ XML lên
     }
+
     [System.Serializable]
     public class Data
     {
-        public string langCode;
-        public string content;
+        public string langCode
+        {
+            get { return langCode; }
+            set { langCode = value; }
+        }
+        public string content
+        {
+            get { return content; }
+            set { content = value; }
+        }
     }
+
     [System.Serializable]
     public class LanguageData
     {
-        public string key;
-        public List<Data> datas;
+        public string key
+        {
+            get { return key; }
+            set { key = value; }
+        }
+        public List<Data> datas
+        {
+            get { return datas; }
+            set { datas = value; }
+        }
     }
+
     [System.Serializable]
     public class XmlLanguageData
     {
-        public List<LanguageData> languageDatas;
+        public List<LanguageData> languageDatas
+        {
+            get { return languageDatas; }
+            set { languageDatas = value; }
+        }
     }
 }

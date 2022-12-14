@@ -7,16 +7,12 @@ namespace DiTichCoDoHue
 {
     public class LanguageManager : MonoBehaviour
     {
-        private List<LeanPhrase> phrases;
         [SerializeField] GameObject parent;
-
-
-
 
         // Start is called before the first frame update
         void Start()
         {
-            phrases = new List<LeanPhrase>();
+            List<LeanPhrase> phrases = new List<LeanPhrase>();
             phrases.AddRange(parent.GetComponentsInChildren<LeanPhrase>());
 
             foreach (LeanPhrase phrase in phrases)

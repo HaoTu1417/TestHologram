@@ -8,7 +8,6 @@ namespace DiTichCoDoHue
     public class ChoseLanguage : MonoBehaviour
     {
         TMP_Dropdown m_Dropdown;
-        Language language;
 
         // Start is called before the first frame update
         void Start()
@@ -25,7 +24,7 @@ namespace DiTichCoDoHue
         //Ouput the new value of the Dropdown into Text
         void DropdownValueChanged(TMP_Dropdown change)
         {
-            language = (Language)change.value;
+            Language language = (Language)change.value;
             Debug.Log(language.ToString());
             Lean.Localization.LeanLocalization.SetCurrentLanguageAll(language.ToString());
         }
