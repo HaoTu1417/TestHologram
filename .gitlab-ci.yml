@@ -30,6 +30,8 @@ sonarqube-check:
     # - Wait-Process -Name Unity
     # - Unity.exe -projectPath . -quit
     # - Wait-Process -Name Unity
+    - git clone https://gitam2.altamedia.vn/Altamedia/Unity-Library.git Assets/Unity-Library
+    - Remove-Item .\Assets\Unity-Library\Plugins\Newtonsoft.Json.dll
 
   script:
     - echo 'Start create sln'
