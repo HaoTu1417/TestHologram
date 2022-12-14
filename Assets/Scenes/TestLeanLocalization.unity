@@ -934,8 +934,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "B\u1EAFt \u0111\u1EA7u"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75840e9f854166e4490fb68aab675607, type: 2}
+  m_sharedMaterial: {fileID: -5736352657155798777, guid: 75840e9f854166e4490fb68aab675607, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationName: BtnPlay
+  translationName: BtnGameOver
   FallbackText: "B\u1EAFt \u0111\xE0u"
 --- !u!114 &566027800
 MonoBehaviour:
@@ -1096,10 +1096,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "B\u1EAFt \u0111\u1EA7u"
+  m_text: "K\u1EBFt Th\xFAc"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75840e9f854166e4490fb68aab675607, type: 2}
+  m_sharedMaterial: {fileID: -5736352657155798777, guid: 75840e9f854166e4490fb68aab675607, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
