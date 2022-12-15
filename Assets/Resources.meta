@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: fbf5685996d5b354f8d79e7bcf954f3b
 =======
 guid: 7b2ec10ca31b89143b9cea1c6c0e39ce
 >>>>>>> origin/BuildUI
+=======
+guid: 5a955f390aa4b864bbdffcf8221971fd
+>>>>>>> origin/paging-ui
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

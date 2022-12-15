@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 78554bac5eb4e234c990385681da76b5
 =======
 guid: f449d4642d88dfa4088e89c39c6aacf2
 >>>>>>> origin/BuildUI
+=======
+guid: e660cd44e933a034889fe5826655a4ed
+>>>>>>> origin/paging-ui
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
