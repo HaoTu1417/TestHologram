@@ -18,6 +18,12 @@ namespace DiTichCoDoHue
         {
             ChangeCamView();
         }
+
+        public void ChangePreviewAngle(Vector2 pos1, Vector2 pos2)
+        {
+            // 
+        }
+
         private void Angle(int fov, Rect rect, Vector2 pos1, Vector2 pos2) // Set Angle for Preview Camera.
         {
             previewCam.fieldOfView = fov;
