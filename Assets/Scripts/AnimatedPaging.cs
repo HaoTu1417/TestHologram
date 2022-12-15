@@ -34,18 +34,18 @@ namespace DiTichCoDoHue
 
 
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                OpenClosePageAnim(true);
-            }
+        //private void Update()
+        //{
+        //    if (Input.GetKeyDown(KeyCode.K))
+        //    {
+        //        OpenClosePageAnim(true);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                OpenClosePageAnim(false);
-            }
-        }
+        //    if (Input.GetKeyDown(KeyCode.L))
+        //    {
+        //        OpenClosePageAnim(false);
+        //    }
+        //}
 
     }
 }

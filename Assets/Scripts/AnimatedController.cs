@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ namespace DiTichCoDoHue
             }
         }
 
-        // Update is called once per frame
+        // dùng để test anim qua trang
         void Update()
         {
             if (Input.anyKey)
